@@ -7,8 +7,9 @@ import icon from "astro-icon";
 
 import netlify from "@astrojs/netlify";
 
-// https://astro.build/config
 export default defineConfig({
+  site: 'https://github.com/shubhaamgupta11/my-dev-space',
+  output: 'static',
   integrations: [react(), icon()],
 
   vite: {
