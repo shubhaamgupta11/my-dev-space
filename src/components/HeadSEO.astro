@@ -1,6 +1,7 @@
 ---
 import "@/styles/global.css";
 import "@/styles/fonts.css";
+import {SITE_TITLE, SITE_DESCRIPTION} from '../lib/constants'
 
 interface Props {
   title?: string | undefined;
@@ -14,7 +15,7 @@ if (Astro.props.ogImage === undefined) {
   Astro.props.ogImage = new URL("og-image.png", canonicalURL);
 }
 
-const { title, description, ogImage } = Astro.props;
+const { title = SITE_TITLE, description = SITE_DESCRIPTION, ogImage } = Astro.props;
 ---
 
 <meta charset="utf-8" />
@@ -43,3 +44,6 @@ const { title, description, ogImage } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={ogImage} />
+<meta property="twitter:site" content="@sg43245" />
+<meta property="twitter:creator" content="@sg43245" />
+<meta property="twitter:creator" content="@sg43245" />
