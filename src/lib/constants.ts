@@ -14,4 +14,7 @@ export const LINKS = {
     { opacity: [1, 0], pointerEvents: "none" },
     { easing: "ease-out" },
   ];
-  
+
+  export const SITE_TITLE = 'Shubham Gupta';
+  export const SITE_SUBLINE = 'Passionate developer crafting impactful open-source solutions'
+  export const SITE_DESCRIPTION = 'Hi, I\'m Shubham Gupta, a passionate developer crafting impactful open-source solutions and sharing insights through blogging.'
