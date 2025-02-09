@@ -1,37 +1,56 @@
 ---
-import { InstagramLogoIcon } from '@radix-ui/react-icons';
+import { BlendingModeIcon, DiscordLogoIcon, GitHubLogoIcon, InstagramLogoIcon, LinkedInLogoIcon, ModulzLogoIcon, TwitterLogoIcon } from '@radix-ui/react-icons';
 import { Button } from '../components/ui/button';
-import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { LINKS } from '@/lib/constants';
+import { Mail, YoutubeIcon } from 'lucide-react';
 ---
 <div class="flex justify-center md:justify-start space-x-4 mt-4">
-    <a href="https://github.com/shubhaamgupta11" target="_blank">
+    <a href={LINKS.github} target="_blank">
       <Button variant="outline" size="icon" className="border-2 border-primary theme-border">
-        <Github className="h-6 w-6" />
+        <GitHubLogoIcon className="h-6 w-6" />
         <span class="sr-only">GitHub</span>
       </Button>
     </a>
-    <a href="https://www.linkedin.com/in/shubham43245/" target="_blank">
+    <a href={LINKS.linkedin} target="_blank">
       <Button variant="outline" size="icon" className="border-2 border-primary theme-border">
-        <Linkedin className="h-6 w-6" />
+        <LinkedInLogoIcon className="h-6 w-6" />
         <span class="sr-only">LinkedIn</span>
       </Button>
     </a>
-    <a href="https://x.com/sg43245" target="_blank">
+    <a href={LINKS.twitter} target="_blank">
       <Button variant="outline" size="icon" className="border-2 border-primary theme-border">
-        <Twitter className="h-6 w-6" />
+        <TwitterLogoIcon className="h-6 w-6" />
         <span class="sr-only">Twitter</span>
       </Button>
     </a>
-    <a href="https://www.instagram.com/s_h_u_b_h_g_u_p_t_a?igsh=emg5d29wZWpmbTNr&utm_source=qr" target="_blank">
+    <a href={LINKS.instagram} target="_blank">
       <Button variant="outline" size="icon" className="border-2 border-primary theme-border">
         <InstagramLogoIcon className='h-6 w-6' />
-        <span class="sr-only">Twitter</span>
+        <span class="sr-only">Instagram</span>
       </Button>
     </a>
-    <a href="mailto:sg43245@gmail.com">
+    <a href={LINKS.youtube} target="_blank">
+      <Button variant="outline" size="icon" className="border-2 border-primary theme-border">
+        <YoutubeIcon className='h-6 w-6' />
+        <span class="sr-only">Youtube</span>
+      </Button>
+    </a>
+    <a href={LINKS.discord} target="_blank">
+      <Button variant="outline" size="icon" className="border-2 border-primary theme-border">
+        <DiscordLogoIcon className='h-6 w-6' />
+        <span class="sr-only">Discord</span>
+      </Button>
+    </a>
+    <a href={LINKS.email}>
       <Button variant="outline" size="icon" className="border-2 border-primary theme-border">
         <Mail className="h-6 w-6" />
         <span class="sr-only">Email</span>
+      </Button>
+    </a>
+    <a href={LINKS.medium}>
+      <Button variant="outline" size="icon" className="border-2 border-primary theme-border">
+        <ModulzLogoIcon className="h-6 w-6" />
+        <span class="sr-only">Medium</span>
       </Button>
     </a>
   </div>
