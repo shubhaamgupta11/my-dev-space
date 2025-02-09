@@ -167,3 +167,30 @@
     text-rendering: optimizeLegibility;
   }
 }
+
+/* Custom class to apply theme-based border colors */
+.theme-border {
+  /* The border color will be dynamically changed in JS */
+  border-color: var(--card-border); /* Default fallback */
+}
+
+.red-theme {
+  --card-border: #e63946;
+}
+
+/* Define custom border colors for each theme */
+.yellow-theme {
+  --card-border: #fbd338; /* Yellow theme border */
+}
+
+.blue-theme {
+  --card-border: #1e3a8a; /* Blue theme border */
+}
+
+.purple-theme {
+  --card-border: #6d28d9; /* Purple theme border */
+}
+
+.green-theme {
+  --card-border: #10b981; /* Green theme border */
+}

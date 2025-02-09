@@ -11,12 +11,12 @@ interface Props {
 const { title, description, link } = Astro.props;
 ---
 
-<Card className="flex flex-col h-full border-1 border-primary">
+<Card className="flex flex-col h-full border-1 border-primary theme-border">
   <CardContent className="flex-grow p-4">
     <h3 class="font-semibold text-xl mb-2">{title}</h3>
     <p class="text-sm text-muted-foreground">{description}</p>
   </CardContent>
-  <CardFooter className="p-4 pt-0">
+  <CardFooter className="p-4 pt-0 ">
     <a href={link} target="_blank" class="inline-flex items-center gap-2 text-sm hover:underline">
       Read More
       <ArrowRight className="h-4 w-4" />

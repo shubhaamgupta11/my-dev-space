@@ -3,11 +3,23 @@ import { SunIcon, MoonIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
 ---
 
-<Button variant="ghost" size="icon" id="themeToggle">
-  <SunIcon className="h-[1.5rem] w-[1.3rem] dark:hidden" />
-  <MoonIcon className="hidden h-5 w-5 dark:block" />
-  <span class="sr-only">Toggle theme</span>
-</Button>
+<!-- Border Color Buttons -->
+<div class="flex gap-2 items-center">
+  <div class="w-8 h-8 rounded-full bg-[#e63946] cursor-pointer" data-theme="red-theme"></div>
+  <div class="w-8 h-8 rounded-full bg-yellow-500 cursor-pointer" data-theme="yellow-theme"></div>
+  <div class="w-8 h-8 rounded-full bg-blue-500 cursor-pointer" data-theme="blue-theme"></div>
+  <div class="w-8 h-8 rounded-full bg-purple-500 cursor-pointer" data-theme="purple-theme"></div>
+  <div class="w-8 h-8 rounded-full bg-green-500 cursor-pointer" data-theme="green-theme"></div>
+</div>
+
+<!-- Border Color Buttons -->
+<div class="flex gap-2 items-center">
+  <Button variant="ghost" size="icon" id="themeToggle">
+    <SunIcon className="h-[1.5rem] w-[1.3rem] dark:hidden" />
+    <MoonIcon className="hidden h-5 w-5 dark:block" />
+    <span class="sr-only">Toggle theme</span>
+  </Button>
+</div>
 
 <script is:inline>
   const getThemePreference = () => {
@@ -32,15 +44,43 @@ import { Button } from "@/components/ui/button";
     })
   }
 
+    // Change Image Based on Theme
+    const updateImage = () => {
+    const themeImage = document.getElementById('themeImage');
+    const isDarkMode = document.documentElement.classList.contains('dark');
+    themeImage.src = isDarkMode ? '/dark-mode-logo.png' : '/light-mode-logo.png';
+  }
+
+  updateImage();
+
   const handleToggleClick = () => {
     const element = document.documentElement
     element.classList.toggle('dark')
 
     const isDark = element.classList.contains('dark')
+
+    updateImage();
     localStorage.setItem('theme', isDark ? 'dark' : 'light')
   }
 
   document
     .getElementById('themeToggle')
     .addEventListener('click', handleToggleClick)
+
+    document.querySelectorAll('.cursor-pointer').forEach(button => {
+    console.log("Added buttons ", button)
+    button.addEventListener('click', () => {
+      console.log("Button clicked ", button.dataset.theme);
+
+      // Remove previous theme classes from body
+      document.body.classList.remove('red-theme', 'yellow-theme', 'blue-theme', 'purple-theme', 'green-theme');
+
+      // Add the selected theme class to body
+      const selectedTheme = button.dataset.theme;
+      document.body.classList.add(selectedTheme);
+
+      // Optional: log the theme change to check
+      console.log(`Theme applied: ${selectedTheme}`);
+    });
+  });
 </script>
