@@ -1,0 +1,28 @@
+---
+import BlogCard from "./BlogCard.astro";
+const blogPosts = [
+  {
+    title: "Understnading Baseline Profile",
+    description: "A deep dive into React Hooks and how to use them effectively in your projects.",
+    link: "https://shubham.dev/blog/mastering-react-hooks"
+  },
+  {
+    title: "Marco: Performance Monitoring Tool",
+    description: "Learn how to create powerful command-line interfaces using Node.js.",
+    link: "https://shubham.dev/blog/building-cli-tools-nodejs"
+  },
+  {
+    title: "Creating modern CLI tooling",
+    description: "Exploring the trends and technologies shaping the future of mobile app development.",
+    link: "https://shubham.dev/blog/future-of-mobile-development"
+  }
+];
+---
+<section id="blogs" class="mb-16">
+    <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center">My Blogs</h2>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {blogPosts.map((post) => (
+        <BlogCard {...post} />
+      ))}
+    </div>
+  </section>

@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ThemeToggle from '../components/ThemeToggle.astro'
+import IntroductionCard from '@/components/IntroductionCard.astro';
+import OpenSourceWrapper from '@/components/OpenSourceWrapper.astro';
+import ProjectWrapper from '@/components/ProjectWrapper.astro';
+import BlogWrapper from '@/components/BlogWrapper.astro';
+import FooterCard from '@/components/FooterCard.astro';
+---
+
+<Layout title="Shubham Gupta - Full Stack Developer">
+  <div class="min-h-screen bg-background py-8">
+    <div class="container mx-auto px-4 floating-container">
+      <header class="flex justify-between items-center mb-8">
+        <span class="font-bold text-lg">shubham.dev</span>
+        <ThemeToggle />
+      </header>
+      <main>
+        <IntroductionCard />
+        <OpenSourceWrapper />
+        <ProjectWrapper />
+       <BlogWrapper />
+       <FooterCard />
+      </main>
+    </div>
+  </div>
+</Layout>
+

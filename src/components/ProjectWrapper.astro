@@ -1,0 +1,17 @@
+---
+import ProjectCard from "./ProjectCard.astro"
+---
+
+<section id="projects" class="mb-16">
+    <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center">Projects Developed</h2>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <ProjectCard
+        title="Repo Activity Monitor"
+        description="A GitHub Action that automatically labels pull requests based on file changes."
+        repo="ShubhamGupta/auto-label-pr"
+      />
+      <div class="flex items-center justify-center p-6 border-1 border-primary rounded-lg">
+        <p class="text-center text-muted-foreground">More projects coming soon!</p>
+      </div>
+    </div>
+  </section>

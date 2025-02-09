@@ -1,0 +1,30 @@
+---
+import { Button } from '../components/ui/button';
+import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
+---
+<div class="flex justify-center md:justify-start space-x-4 mt-4">
+    <a href="https://github.com/shubhaamgupta11" target="_blank">
+      <Button variant="outline" size="icon" className="border-primary">
+        <Github className="h-4 w-4" />
+        <span class="sr-only">GitHub</span>
+      </Button>
+    </a>
+    <a href="https://www.linkedin.com/in/shubham43245/" target="_blank">
+      <Button variant="outline" size="icon" className="border-primary">
+        <Linkedin className="h-4 w-4" />
+        <span class="sr-only">LinkedIn</span>
+      </Button>
+    </a>
+    <a href="https://x.com/sg43245" target="_blank">
+      <Button variant="outline" size="icon" className="border-primary">
+        <Twitter className="h-4 w-4" />
+        <span class="sr-only">Twitter</span>
+      </Button>
+    </a>
+    <a href="mailto:sg43245@gmail.com">
+      <Button variant="outline" size="icon" className="border-primary">
+        <Mail className="h-4 w-4" />
+        <span class="sr-only">Email</span>
+      </Button>
+    </a>
+  </div>

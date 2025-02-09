@@ -1,0 +1,26 @@
+---
+import { Card, CardContent, CardFooter } from './ui/card';
+import { ArrowRight } from 'lucide-react';
+
+interface Props {
+  title: string;
+  description: string;
+  link: string;
+}
+
+const { title, description, link } = Astro.props;
+---
+
+<Card className="flex flex-col h-full border-2 border-primary">
+  <CardContent className="flex-grow p-4">
+    <h3 class="font-semibold text-xl mb-2">{title}</h3>
+    <p class="text-sm text-muted-foreground">{description}</p>
+  </CardContent>
+  <CardFooter className="p-4 pt-0">
+    <a href={link} target="_blank" class="inline-flex items-center gap-2 text-sm hover:underline">
+      Read More
+      <ArrowRight className="h-4 w-4" />
+    </a>
+  </CardFooter>
+</Card>
+

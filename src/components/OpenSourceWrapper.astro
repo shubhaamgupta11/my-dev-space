@@ -1,0 +1,40 @@
+---
+import OpenSourceCard from "./OpenSourceCard.astro";
+
+const openSourceProjects = [
+  {
+    title: "React Native",
+    description: "A framework for building native applications using React.",
+    repo: "https://github.com/facebook/react-native/pulls?q=is%3Apr+is%3Aclosed+author%3Ashubhamguptadream11+",
+    contributions: 15
+  },
+  {
+    title: "Native Bottom Tabs",
+    description: "Native Bottom Tabs for React Native.",
+    repo: "https://github.com/callstackincubator/react-native-bottom-tabs/pulls?q=is%3Apr+is%3Aclosed+author%3Ashubhamguptadream11",
+    contributions: 6
+  },
+  {
+    title: "React Native Web View",
+    description: "React Native Cross-Platform WebView.",
+    repo: "https://github.com/react-native-webview/react-native-webview/pulls?q=is%3Apr+is%3Aclosed+author%3Ashubhamguptadream11",
+    contributions: 1
+  },
+  {
+    title: "Hermes",
+    description: "A JavaScript engine optimized for running React Native.",
+    repo: "https://github.com/facebook/hermes/pulls?q=is%3Apr+is%3Aclosed+author%3Ashubhamguptadream11",
+    contributions: 1
+  }
+];
+
+---
+
+<section id="open-source-contributions" class="mb-16 mt-12">
+    <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center">Open Source Contributions</h2>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {openSourceProjects.map((project) => (
+        <OpenSourceCard {...project} />
+      ))}
+    </div>
+  </section>

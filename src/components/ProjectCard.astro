@@ -1,0 +1,30 @@
+---
+import { Card, CardContent, CardFooter } from './ui/card';
+import { Github } from 'lucide-react';
+
+interface Props {
+  title: string;
+  description: string;
+  repo: string;
+}
+
+const { title, description, repo } = Astro.props;
+---
+
+<Card className="flex flex-col h-full border-1 border-primary">
+  <CardContent className="flex-grow p-4">
+    <h3 class="font-semibold text-xl mb-2">{title}</h3>
+    <p class="text-sm text-muted-foreground mb-2">{description}</p>
+  </CardContent>
+  <CardFooter className="p-4 pt-0">
+    <a
+      href={`https://github.com/${repo}`}
+      target="_blank"
+      class="inline-flex items-center gap-2 text-sm hover:underline"
+    >
+      View on GitHub
+      <Github className="h-4 w-4" />
+    </a>
+  </CardFooter>
+</Card>
+
