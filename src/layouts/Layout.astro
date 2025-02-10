@@ -8,12 +8,22 @@ interface Props {
 }
 
 const { title, description, ogImage } = Astro.props;
+const GA_TOKEN = 'G-FL2XYRYV3Q';
 ---
 
 <html lang="en">
   <head>
     <HeadSEO title={title} description={description} ogImage={ogImage} />
   </head>
+    <!-- Google tag (gtag.js) -->
+  <script type="text/partytown" async src=`https://www.googletagmanager.com/gtag/js?id=${GA_TOKEN}`></script>
+  <script type="text/partytown">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', GA_TOKEN);
+  </script>
   <body class="bg-background min-h-screen font-sans antialiased">
     <div class="relative flex min-h-screen flex-col">
       <main class="flex-auto">
