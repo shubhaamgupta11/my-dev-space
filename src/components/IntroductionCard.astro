@@ -3,27 +3,29 @@ import Card from './Card/index.astro'
 import SocialHandler from "./SocialHandler.astro";
 import { Image } from "astro:assets";
 ---
-<Card colSpan="md:col-span-3" rowSpan="md:row-span-4" >
-  <div class="flex w-full h-full">
-    <div class="flex flex-col justify-between md:max-h-[300px] gap-4">
+<Card colSpan="md:col-span-3" rowSpan="md:row-span-4">
+  <div class="flex flex-col md:flex-row w-full h-full">
+    <div class="flex flex-col justify-between gap-4 md:max-h-[300px] w-full">
       <div class="flex flex-col h-full">
         <h6 class="text-sm font-light m-0 text-gray-500">welcome</h6>
         <p class="m-0 font-light text-xl">
           Hi, I'm <b class="font-bold">Shubham Gupta</b>, 
           passionate developer focused on creating impactful open-source solutions and sharing knowledge through blogging.
         </p>
-        <p class="mt-2 text-muted-foreground md:text-sm">
+        <p class="mt-2 text-muted-foreground text-sm md:text-base">
             React | React Native | TypeScript | Android | CLI | Open Source
-          </p>
+        </p>
       </div>
       <SocialHandler />
     </div>
-    <Image
-      width="300"
-      height="300"
-      src="/me.webp"
-      class="w-auto max-h-[300px] select-none absolute right-[-110px] bottom-[-20px] z-[-1] opacity-50 md:opacity-100 md:relative md:right-auto md:bottom-auto md:z-auto pointer-events-none"
-      alt="memoji of gianmarco"
-    />
+    <div class="flex justify-center md:justify-end w-full">
+      <Image
+        width="200"
+        height="200"
+        src="/me.webp"
+        class="w-[120px] h-[120px] md:w-[200px] md:h-[200px] select-none opacity-80 md:opacity-100 pointer-events-none"
+        alt="Shubham's memoji"
+      />
+    </div>
   </div>
 </Card>
