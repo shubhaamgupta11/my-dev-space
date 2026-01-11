@@ -1,0 +1,43 @@
+---
+import TalkCard from "./TalkCard.astro";
+
+const talks = [
+  {
+    title: "Performance Optimization in React Native",
+    event: "React Mumbai",
+    description: "Deep dive into performance tracking and optimization techniques for React Native applications",
+    link: "https://www.youtube.com/watch?v=mIqMVxKC4e4&t=109s",
+    type: "video" as const,
+    thumbnail: "https://img.youtube.com/vi/mIqMVxKC4e4/hqdefault.jpg"
+  },
+  {
+    title: "Building Better React Native Apps",
+    event: "React Nexus",
+    description: "Exploring modern React Native development practices and best practices",
+    link: "https://www.youtube.com/watch?v=qFk4mBihyyo&pp=ygUTcmVhY3QgbmV4dXMgc2h1YmhhbdIHCQlNCgGHKiGM7w%3D%3D",
+    type: "video" as const,
+    thumbnail: "https://img.youtube.com/vi/qFk4mBihyyo/hqdefault.jpg"
+  },
+  {
+    title: "Core Contributor Summit 2025",
+    event: "Core Contributor Summit Poland",
+    description: "Participated in the React Native Core Contributor Summit, contributing to the future of React Native",
+    link: "https://www.callstack.com/podcasts/core-contributor-summit-2025-highlights",
+    type: "post" as const,
+    thumbnail: "/summit.jpeg"
+  }
+];
+---
+
+<section id="talks" class="mb-16">
+    <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center">Talks & Events</h2>
+    <p class="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+      Sharing knowledge and insights at conferences and community events
+    </p>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {talks.map((talk) => (
+        <TalkCard {...talk} />
+      ))}
+    </div>
+  </section>
+

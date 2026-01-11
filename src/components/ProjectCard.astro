@@ -1,29 +1,57 @@
 ---
 import { Card, CardContent, CardFooter } from './ui/card';
-import { Github } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 
 interface Props {
   title: string;
   description: string;
   repo: string;
+  featured?: boolean;
+  link?: string;
 }
 
-const { title, description, repo } = Astro.props;
+const { title, description, repo, featured = false, link } = Astro.props;
+const projectLink = link || `https://github.com/${repo}`;
+const isExternalLink = link ? true : false;
 ---
 
-<Card className="flex flex-col h-full border-1 border-primary theme-border">
+<Card className={`flex flex-col h-full border-1 theme-border relative ${
+  featured 
+    ? 'border-primary/60 border-2' 
+    : 'border-primary'
+}`}>
+  {featured && (
+    <div class="absolute top-3 right-3 group">
+      <div class="flex items-center gap-1 bg-primary/5 dark:bg-primary/10 px-2 py-1 rounded-md cursor-help border border-primary/20">
+        <span class="text-xs text-primary">⭐ Community</span>
+      </div>
+      <div class="absolute right-0 top-full mt-1 w-64 p-3 bg-popover dark:bg-popover border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible hover:opacity-100 hover:visible transition-all duration-200 z-50">
+        <p class="text-xs text-popover-foreground">
+          <strong class="font-semibold">Used by React Native Community!</strong><br/>
+          This project has been forked and is actively used by the React Native community 
+          (<a href="https://github.com/react-native-community/repo-monitor" target="_blank" class="underline hover:text-primary" rel="noopener noreferrer">react-native-community/repo-monitor</a>) 
+          for issue triaging with Discord notifications.
+        </p>
+      </div>
+    </div>
+  )}
   <CardContent className="flex-grow p-4">
     <h3 class="font-semibold text-xl mb-2">{title}</h3>
     <p class="text-sm text-muted-foreground mb-2">{description}</p>
   </CardContent>
   <CardFooter className="p-4 pt-0 ">
     <a
-      href={`https://github.com/${repo}`}
+      href={projectLink}
       target="_blank"
+      rel="noopener noreferrer"
       class="inline-flex items-center gap-2 text-sm hover:underline"
     >
-      View on GitHub
-      <Github className="h-4 w-4" />
+      {isExternalLink ? 'Visit Website' : 'View on GitHub'}
+      {isExternalLink ? (
+        <ExternalLink className="h-4 w-4" />
+      ) : (
+        <Github className="h-4 w-4" />
+      )}
     </a>
   </CardFooter>
 </Card>

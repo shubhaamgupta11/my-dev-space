@@ -1,0 +1,60 @@
+---
+import { Card, CardContent, CardFooter } from './ui/card';
+import { ExternalLink, Youtube, Play } from 'lucide-react';
+
+interface Props {
+  title: string;
+  event: string;
+  description?: string;
+  link: string;
+  type: 'video' | 'post';
+  thumbnail?: string | null;
+}
+
+const { title, event, description, link, type, thumbnail } = Astro.props;
+---
+
+<Card className="flex flex-col h-full border-1 border-primary theme-border overflow-hidden">
+  <a href={link} target="_blank" rel="noopener noreferrer" class="block">
+    {thumbnail && (
+      <div class="relative w-full aspect-video overflow-hidden bg-muted cursor-pointer">
+        <img 
+          src={thumbnail} 
+          alt={`${title} thumbnail`}
+          class="w-full h-full object-cover"
+          loading="lazy"
+        />
+        {type === 'video' && (
+          <div class="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors">
+            <div class="bg-white/90 dark:bg-white/80 rounded-full p-3 hover:bg-white dark:hover:bg-white/90 transition-colors">
+              <Play className="h-6 w-6 text-gray-900 dark:text-gray-900 fill-gray-900 dark:fill-gray-900" />
+            </div>
+          </div>
+        )}
+      </div>
+    )}
+  </a>
+  <CardContent className="flex-grow p-4">
+    <h3 class="font-semibold text-xl mb-2">{title}</h3>
+    <p class="text-sm font-medium text-primary mb-2">{event}</p>
+    {description && (
+      <p class="text-sm text-muted-foreground">{description}</p>
+    )}
+  </CardContent>
+  <CardFooter className="p-4 pt-0">
+    <a 
+      href={link} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-2 text-sm hover:underline"
+    >
+      {type === 'video' ? 'Watch Video' : 'View Post'}
+      {type === 'video' ? (
+        <Youtube className="h-4 w-4" />
+      ) : (
+        <ExternalLink className="h-4 w-4" />
+      )}
+    </a>
+  </CardFooter>
+</Card>
+

@@ -1,17 +1,50 @@
 ---
 import ProjectCard from "./ProjectCard.astro"
+
+const openSourceProjects = [
+  {
+    title: "Repo Activity Monitor",
+    description: "A GitHub Action that monitors new issues and pull requests in your GitHub repositories.",
+    repo: "marketplace/actions/repo-activity-monitor",
+    featured: true
+  },
+  {
+    title: "Marco",
+    description: "Super easy performance tracking library for React Native Apps. Leverages TurboModules and Fabric for improved efficiency, providing insights into render times, draw times, and performance bottlenecks.",
+    repo: "dream-horizon-org/marco"
+  },
+  {
+    title: "deFrost",
+    description: "A powerful React Native library for recording and analyzing frame data to help identify performance issues and optimize app performance.",
+    repo: "dream-horizon-org/deFrost"
+  },
+  {
+    title: "Pulse",
+    description: "A React Native library for monitoring and tracking app performance metrics and providing real-time insights.",
+    repo: "dream-horizon-org/pulse"
+  },
+  {
+    title: "RN Benchmarking",
+    description: "A toolkit to benchmark the performance of different React Native versions using a sample app. Supports both Old and New Architecture with manual and automated testing capabilities.",
+    repo: "dream-horizon-org/rn-benchmarking",
+    link: "https://reactnativebenchmark.dev/"
+  },
+  {
+    title: "Delivr SDK OTA",
+    description: "An Over-The-Air (OTA) update SDK for React Native applications, enabling seamless delivery of updates and bytecode support for both Android and iOS platforms.",
+    repo: "dream-horizon-org/delivr-sdk-ota"
+  }
+];
 ---
 
 <section id="projects" class="mb-16">
-    <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center">Projects Developed</h2>
+    <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center">Open Source Projects</h2>
+    <p class="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+      Projects I'm actively developing and maintaining, including Dream Horizon organization projects and community tools
+    </p>
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      <ProjectCard
-        title="Repo Activity Monitor"
-        description="A GitHub Action that monitor new issues and pull requests in your GitHub repositories"
-        repo="marketplace/actions/repo-activity-monitor"
-      />
-      <!-- <div class="flex items-center justify-center p-6 border-1 border-primary rounded-lg theme-border">
-        <p class="text-center text-muted-foreground">More projects coming soon!</p>
-      </div> -->
+      {openSourceProjects.map((project) => (
+        <ProjectCard {...project} />
+      ))}
     </div>
   </section>
