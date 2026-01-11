@@ -1,23 +1,25 @@
 ---
 import Card from './Card/index.astro'
-import SocialHandler from "./SocialHandler.astro";
 import { Image } from "astro:assets";
 ---
-<div class="mb-16">
+<div class="mb-16 scroll-fade-in">
   <Card colSpan="md:col-span-3" rowSpan="md:row-span-4">
     <div class="flex flex-col md:flex-row w-full h-full">
-    <div class="flex flex-col justify-between gap-4 md:max-h-[300px] w-full">
+    <div class="flex flex-col gap-4 md:max-h-[300px] w-full">
       <div class="flex flex-col h-full">
-        <h6 class="text-sm font-light m-0 text-gray-500">welcome</h6>
+        <h6 class="text-sm font-light m-0 text-gray-500 dark:text-gray-400">welcome</h6>
         <p class="m-0 font-light text-xl">
           Hi, I'm <b class="font-bold">Shubham Gupta</b>, 
-          passionate developer focused on creating impactful open-source solutions and sharing knowledge through blogging.
+          an app developer who loves building high performant apps. I'm a React Native core contributor and open source maintainer, building performance tools, contributing to the React Native ecosystem, and sharing knowledge through talks and blogging.
         </p>
-        <p class="mt-2 text-muted-foreground text-sm md:text-base">
-            React | React Native | TypeScript | Android | CLI | Open Source
-        </p>
+        <div class="mt-4 flex flex-wrap items-center gap-2">
+          <span class="text-xs md:text-sm text-muted-foreground font-medium">React Native</span>
+          <span class="text-muted-foreground/40">•</span>
+          <span class="text-xs md:text-sm text-muted-foreground font-medium">iOS</span>
+          <span class="text-muted-foreground/40">•</span>
+          <span class="text-xs md:text-sm text-muted-foreground font-medium">Android</span>
+        </div>
       </div>
-      <SocialHandler />
     </div>
     <div class="flex justify-center md:justify-end w-full">
       <Image
@@ -28,6 +30,6 @@ import { Image } from "astro:assets";
         alt="Shubham's memoji"
       />
     </div>
-  </div>
+    </div>
   </Card>
 </div>

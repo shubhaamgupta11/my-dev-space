@@ -14,7 +14,7 @@ interface Props {
 const { title, event, description, link, type, thumbnail } = Astro.props;
 ---
 
-<Card className="flex flex-col h-full border-1 border-primary theme-border overflow-hidden">
+<Card className="flex flex-col h-full border-1 border-primary theme-border overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
   <a href={link} target="_blank" rel="noopener noreferrer" class="block">
     {thumbnail && (
       <div class="relative w-full aspect-video overflow-hidden bg-muted cursor-pointer">

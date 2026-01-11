@@ -1,6 +1,6 @@
 ---
 import { Card, CardContent, CardFooter } from './ui/card';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink, Star } from 'lucide-react';
 
 interface Props {
   title: string;
@@ -8,14 +8,15 @@ interface Props {
   repo: string;
   featured?: boolean;
   link?: string;
+  stars?: number | null;
 }
 
-const { title, description, repo, featured = false, link } = Astro.props;
+const { title, description, repo, featured = false, link, stars } = Astro.props;
 const projectLink = link || `https://github.com/${repo}`;
 const isExternalLink = link ? true : false;
 ---
 
-<Card className={`flex flex-col h-full border-1 theme-border relative ${
+<Card className={`flex flex-col h-full border-1 theme-border relative transition-all duration-300 hover:shadow-lg hover:scale-[1.02] ${
   featured 
     ? 'border-primary/60 border-2' 
     : 'border-primary'
@@ -36,7 +37,21 @@ const isExternalLink = link ? true : false;
     </div>
   )}
   <CardContent className="flex-grow p-4">
-    <h3 class="font-semibold text-xl mb-2">{title}</h3>
+    <div class="flex items-start justify-between mb-2">
+      <h3 class="font-semibold text-xl">{title}</h3>
+      {stars !== null && stars !== undefined && stars >= 20 && (
+        <a 
+          href={`https://github.com/${repo}/stargazers`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors"
+          onclick="event.stopPropagation()"
+        >
+          <Star className="h-3 w-3 fill-current" />
+          <span>{stars}</span>
+        </a>
+      )}
+    </div>
     <p class="text-sm text-muted-foreground mb-2">{description}</p>
   </CardContent>
   <CardFooter className="p-4 pt-0 ">

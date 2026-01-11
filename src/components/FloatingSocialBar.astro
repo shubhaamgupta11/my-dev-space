@@ -1,0 +1,57 @@
+---
+import { GitHubLogoIcon, LinkedInLogoIcon, TwitterLogoIcon } from '@radix-ui/react-icons';
+import { Mail } from 'lucide-react';
+import { LINKS } from '@/lib/constants';
+---
+
+<div class="fixed left-6 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-4">
+  <a 
+    href={LINKS.github} 
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="p-3 rounded-full bg-background border border-border hover:border-primary theme-border transition-all hover:scale-110 shadow-lg hover:shadow-xl"
+    aria-label="GitHub"
+  >
+    <GitHubLogoIcon className="h-5 w-5 text-foreground" />
+  </a>
+  <a 
+    href={LINKS.linkedin} 
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="p-3 rounded-full bg-background border border-border hover:border-primary theme-border transition-all hover:scale-110 shadow-lg hover:shadow-xl"
+    aria-label="LinkedIn"
+  >
+    <LinkedInLogoIcon className="h-5 w-5 text-foreground" />
+  </a>
+  <a 
+    href={LINKS.twitter} 
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="p-3 rounded-full bg-background border border-border hover:border-primary theme-border transition-all hover:scale-110 shadow-lg hover:shadow-xl"
+    aria-label="Twitter"
+  >
+    <TwitterLogoIcon className="h-5 w-5 text-foreground" />
+  </a>
+  <a 
+    href={LINKS.email}
+    class="p-3 rounded-full bg-background border border-border hover:border-primary theme-border transition-all hover:scale-110 shadow-lg hover:shadow-xl"
+    aria-label="Email"
+  >
+    <Mail className="h-5 w-5 text-foreground" />
+  </a>
+  <a 
+    href={LINKS.medium} 
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="p-3 rounded-full bg-background border border-border hover:border-primary theme-border transition-all hover:scale-110 shadow-lg hover:shadow-xl"
+    aria-label="Medium"
+  >
+    <svg className="h-5 w-5 text-foreground" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+    </svg>
+  </a>
+  
+  <!-- Vertical line -->
+  <div class="h-12 w-px bg-border mx-auto mt-2"></div>
+</div>
+
